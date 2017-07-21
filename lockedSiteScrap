@@ -1,0 +1,16 @@
+import mechanize
+from bs4 import BeautifulSoup
+import urllib3 
+import cookielib
+
+cj = cookielib.CookieJar()
+br = mechanize.Browser()
+br.set_cookiejar(cj)
+br.open("http://inviewapp.cch.com/lbautolog/Pages/LogSearch.aspx")
+
+br.select_form(nr=0)
+br.form['username'] = 'Sakthivel.J'
+br.form['password'] = 'Pass@2511'
+br.submit()
+
+print (br.response().read())
