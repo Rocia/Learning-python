@@ -7,5 +7,5 @@ def factorial(n):
     else:
         res = n * factorial(n-1)
         return res	
-num = (int)input("Enter a number:")
+num = int(input("Enter a number:"))
 print(factorial(num))
