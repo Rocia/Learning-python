@@ -4,5 +4,5 @@ def fibi(n):
     for i in range(n):
         a, b = b, a + b
     return a
-num = (int)input("Enter Number")
+num = int(input("Enter Number"))
 print(fibi(num))
