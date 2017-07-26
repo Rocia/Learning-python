@@ -1,3 +1,14 @@
+'''
+The Fibonacci numbers are hidden inside of Pascal's triangle. 
+If you sum up the coloured numbers of the following triangle, you will get the 7th Fibonacci number:
+1
+1    1
+1    2    1
+1    3    3    1
+1    4    6    4    1
+1    5    10    10    5    1
+1    6    15    20    15    6    1
+'''
 def fib_pascal(n,fib_pos):
     if n == 1:
         line = [1]
