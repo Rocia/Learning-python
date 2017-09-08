@@ -1,22 +1,22 @@
+import os
+from ftplib import FTP
+
 def moveFTPFiles(serverName,userName,passWord,remotePath,localPath,deleteRemoteFiles=False,onlyDiff=False):
 	"""Connect to an FTP server and bring down files to a local directory"""
-	import os
-	from sets import Set
-	from ftplib import FTP
 	try:
 		ftp = FTP(serverName)
 	except:
-		print "Couldn't find server"
+		print ("Couldn't find server")
 	ftp.login(userName,passWord)
 	ftp.cwd(remotePath)
 	
 	try:
-		print "Connecting..."
+		print ("Connecting...")
 		if onlyDiff:
-			lFileSet = Set(os.listdir(localPath))
-			rFileSet = Set(ftp.nlst())
+			lFileSet = set(os.listdir(localPath))
+			rFileSet = set(ftp.nlst())
 			transferList = list(rFileSet - lFileSet)
-			print "Missing: " + str(len(transferList))
+			print ("Missing: " + str(len(transferList)))
 		else:
 			transferList = ftp.nlst()
 		delMsg = ""	
@@ -39,9 +39,9 @@ def moveFTPFiles(serverName,userName,passWord,remotePath,localPath,deleteRemoteF
 				ftp.delete(fl)
 				delMsg = " and Deleted"
 			
-		print "Files Moved" + delMsg + ": " + str(filesMoved) + " on " + timeStamp()
+		print ("Files Moved" + delMsg + ": " + str(filesMoved) + " on " + timeStamp())
 	except:
-		print "Connection Error - " + timeStamp()
+		print ("Connection Error - " + timeStamp())
 	ftp.close() # Close FTP connection
 	ftp = None
 
@@ -52,14 +52,15 @@ def timeStamp():
 
 if __name__ == '__main__':
 	#--- constant connection values
-	ftpServerName = "ftpservername.com"
-	ftpU = "ftpusername"
-	ftpP = "ftppassword"
-	remoteDirectoryPath = "remote/ftp/subdirectory"
-	localDirectoryPath = """local\sub\directory"""
+	ftpServerName = "172.1.254.125"
+	#ftpU = "ftpusername"
+	ftpU = "opmstools"
+	ftpP = "$opms$123"
+	remoteDirectoryPath = "/Rocia"
+	localDirectoryPath = """home/rocia/Desktop/FTP"""
 	
-	print "\n-- Retreiving Files----\n"
+	print ("\n-- Retreiving Files----\n")
 	
 	deleteAfterCopy = False 	#set to true if you want to clean out the remote directory
-	onlyNewFiles = True			#set to true to grab & overwrite all files locally
+	onlyNewFiles = True	#set to true to grab & overwrite all files locally
 	moveFTPFiles(ftpServerName,ftpU,ftpP,remoteDirectoryPath,localDirectoryPath,deleteAfterCopy,onlyNewFiles)
