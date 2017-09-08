@@ -21,8 +21,5 @@ ftp.login('opmstools','$opms$123')
 
 ftp.cwd("/Rocia") #changing to /Rocia
  
-
  
-
- 
-upload(ftp, "README.nluug")
+upload(ftp, "1000.txt")
