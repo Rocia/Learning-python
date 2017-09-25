@@ -11,7 +11,7 @@ def main():
 
     cron = CronTab(user=True)
 
-    #job = cron.new(command='python /home/rocia/Desktop/a.py')
+    job = cron.new(command='python /home/rocia/Desktop/a.py', comment = 'test')
     #job.minute.on(2)
     #job.hour.on(12)
     #job.minute.on(1)
@@ -19,6 +19,8 @@ def main():
 
 
     #cron.write()
-    print(cron.render())
+    for job in cron:
+	    if job.comment == 'test':
+	        print (job)
 if __name__ == "__main__":
   main()
