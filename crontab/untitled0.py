@@ -1,4 +1,4 @@
-from crontab import CronTab
+from crontab import CronTab, CronSlices, CronSlice
 
 """
 Here the object can take two parameters one for setting 

@@ -13,10 +13,10 @@ sys.path.insert(0, '../')
 
 import unittest
 from crontab import CronTab, CronSlices, CronSlice, PY3
-'''try:
+try:
     from test import test_support
 except ImportError:
-    from test import support as test_support'''
+    from test import support as test_support
 
 TEST_DIR = os.path.dirname(__file__)
 
