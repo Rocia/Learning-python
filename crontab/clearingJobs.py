@@ -3,7 +3,7 @@
 """
 Created on Mon Sep 25 15:38:23 2017
 
-@author: root
+@author: rocia
 """
 
 from crontab import CronTab
@@ -21,6 +21,6 @@ for job in my_cron:
 #alternate
 	
 	'''
-	my_cron.remove(comment='dateinfo')
+	my_cron.remove(comment='test')
 	
 	'''
