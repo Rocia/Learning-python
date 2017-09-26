@@ -23,7 +23,7 @@ def main():
     cron = CronTab(user=True)
 
     job = cron.new(command='python /home/rocia/Desktop/a.py')
-    job.minute().every(2)
+    job.minute.every(2)
 
     cron.write()
     print (cron.render()) 
