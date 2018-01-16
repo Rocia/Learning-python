@@ -3,4 +3,5 @@ def sum_n(n):
         return 0
     else:
         return n + sum_n(n-1)
-num = int(input("enter a number:"))        
+if __name__ == "__main__":
+	num = int(input("enter a number:"))        
