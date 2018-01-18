@@ -13,8 +13,29 @@ def rand():
     for i in range (0,5):
         random.shuffle(test)
         print(test)
+        
+def random_generator_decl():
+    return random.SystemRandom()      
+  
+    
+def pseudo_random(rand_gen):
+    test = ["ravioli", "farfelle", "carbonara", "spaghetti", "lasagne"]
+    print("Pseudo Random     \n", rand_gen.random(),"\n",rand_gen.random(),"\n",rand_gen.random(),"\n",rand_gen.random(),"\n",rand_gen.random(),"\n")
+    print("Pseudo RandInt    \n", rand_gen.randint(1,10),"\n",rand_gen.randint(1,10),"\n",rand_gen.randint(1,10),"\n",rand_gen.randint(1,10),"\n",rand_gen.randint(1,10),"\n")
+    print("Pseudo RandRange  \n", rand_gen.randrange(1,10),"\n",rand_gen.randrange(1,10),"\n",rand_gen.randrange(1,10),"\n",rand_gen.randrange(1,10),"\n",rand_gen.randrange(1,10),"\n")
+    print("Pseudo RandFloat  \n", rand_gen.uniform(1,10),"\n",rand_gen.uniform(1,10),"\n",rand_gen.uniform(1,10),"\n",rand_gen.uniform(1,10),"\n",rand_gen.uniform(1,10),"\n")
+    print("Pseudo RandChoice \n", rand_gen.choice(test),"\n",rand_gen.choice(test),"\n",rand_gen.choice(test),"\n",rand_gen.choice(test),"\n",rand_gen.choice(test),"\n")
+    print("Pseudo RandSample \n", rand_gen.sample(test,3),"\n",rand_gen.sample(test,3),"\n",rand_gen.sample(test,3),"\n",rand_gen.sample(test,3),"\n",rand_gen.sample(test,3),"\n")
+    print("Pseudo RandShuffle")
+    for i in range (0,5):
+        rand_gen.shuffle(test)
+        print(test)    
+    
+   
 if __name__ == "__main__":
     rand()
+    rand_gen = random_generator_decl()
+    pseudo_random(rand_gen)
     
     
 '''
@@ -66,4 +87,53 @@ RandShuffle
 ['spaghetti', 'lasagne', 'farfelle', 'carbonara', 'ravioli']
 ['ravioli', 'carbonara', 'farfelle', 'lasagne', 'spaghetti']
 ['carbonara', 'ravioli', 'farfelle', 'lasagne', 'spaghetti']
+
+Pseudo Random     
+ 0.4053336197238897 
+ 0.1215484263400548 
+ 0.7029225918337397 
+ 0.3380994114460928 
+ 0.20020357824013335 
+
+Pseudo RandInt    
+ 5 
+ 10 
+ 8 
+ 2 
+ 7 
+
+Pseudo RandRange  
+ 4 
+ 4 
+ 5 
+ 9 
+ 9 
+
+Pseudo RandFloat  
+ 8.769135536343104 
+ 9.152618824107037 
+ 6.5110161402314795 
+ 2.7236291851803682 
+ 3.3697509371916885 
+
+Pseudo RandChoice 
+ carbonara 
+ carbonara 
+ carbonara 
+ spaghetti 
+ ravioli 
+
+Pseudo RandSample 
+ ['lasagne', 'farfelle', 'spaghetti'] 
+ ['farfelle', 'spaghetti', 'lasagne'] 
+ ['ravioli', 'spaghetti', 'farfelle'] 
+ ['spaghetti', 'carbonara', 'lasagne'] 
+ ['lasagne', 'spaghetti', 'farfelle'] 
+
+Pseudo RandShuffle
+['ravioli', 'carbonara', 'farfelle', 'lasagne', 'spaghetti']
+['ravioli', 'carbonara', 'lasagne', 'spaghetti', 'farfelle']
+['ravioli', 'carbonara', 'farfelle', 'lasagne', 'spaghetti']
+['farfelle', 'lasagne', 'ravioli', 'spaghetti', 'carbonara']
+['farfelle', 'spaghetti', 'lasagne', 'ravioli', 'carbonara']
 '''
