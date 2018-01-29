@@ -22,7 +22,9 @@ def get_text(image_name, Pgno):
             current_img_name =  image_name+i
         else:
             current_img_name = image_name
-        extract_text(current_img_name)
+        data = extract_text(current_img_name)
+        with open('/home/tr-dt-102/Desktop/result.txt','w') as f:
+            f.write(data)
             
 
 def pdf_to_jpg(path, pdf_name,image_name):
@@ -41,9 +43,12 @@ def get_num_of_pages(pdf):
     return pdfReader.numPages
 
 path = '/home/tr-dt-102/Desktop/'
-pdf_name = 'ROCIA_CV.pdf'
-image_name = pdf_name.replace('.pdf','.jpg')
-cropped_image_name =image_name.replace('.pdf','.jpg')
+pdf_name = 'LOR.pdf'
+image_name = path + pdf_name.replace('.pdf','.jpg')
+cropped_image_name =image_name.replace('.jpg','_crop.jpg')
 
 if __name__ == "__main__":
-    pdf_to_jpg(path, pdf_name,image_name)
+    #pdf_to_jpg(path, pdf_name,image_name)
+    #get_text(image_name, 0)
+    data = extract_text(image_name)
+    print(data)
